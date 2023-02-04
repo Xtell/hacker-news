@@ -1,5 +1,5 @@
-import { ReactDemo } from "./components/index.js";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
+import Index from "./Index.jsx";
 export default class App {
   els = {
     root: "[data-js-root]"
@@ -14,6 +14,6 @@ export default class App {
   }
 
   render() {
-    this.root.render(<ReactDemo/>)
+    this.root.render(<Index/>)
   }
 }
