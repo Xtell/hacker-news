@@ -10,5 +10,8 @@ export default defineConfig({
       iconDirs: [ path.resolve(process.cwd(), "src/icons") ],
       symbolId: '[name]',
     })
-  ]
+  ],
+  server: {
+    cors: true
+  }
 })

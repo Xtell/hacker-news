@@ -4,4 +4,5 @@ const theme = {
   }
 }
 
-export { theme }
+const baseApiUrl = "https://hacker-news.firebaseio.com"
+export { theme, baseApiUrl }
