@@ -1,25 +1,14 @@
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Root } from "./layouts/index.js";
-import { MainPage } from "./pages/index.js";
-
+import { store } from "./store";
+import { Provider } from "react-redux";
+import routes from "./routes/index.jsx";
 export default class App {
   els = {
     root: "[data-js-root]"
   };
 
-  router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root/>,
-      children: [
-        {
-          path: "/",
-          element: <MainPage/>
-        }
-      ]
-    }
-  ]);
+  router = createBrowserRouter(routes);
 
   constructor() {
     this.rootElement = document.querySelector(this.els.root);
@@ -30,6 +19,10 @@ export default class App {
   }
 
   render() {
-    this.root.render(<RouterProvider router={ this.router }/>);
+    this.root.render(
+        <Provider store={ store }>
+          <RouterProvider router={ this.router }/>
+        </Provider>
+    );
   }
 }
