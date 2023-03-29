@@ -8,11 +8,12 @@ export const itemsSlice = createSlice({
   reducers: {
     set: (state, action) => {
       const { items = [] } = action.payload;
-      return items;
+      console.debug(action)
+      return [...items];
     },
     add: (state, action) => {
       const { items = [] } = action.payload;
-      return [ ...state, ...items ];
+      return [...state, ...items];
     }
   }
 });
